@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Edit Pet</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div th:replace="fragments/menu"></div>
+	<h1>Pet</h1>
+	<form action="#" th:object="${pet}" th:action="@{/pet/save}"
+		method="post">
+		<input type="hidden" th:field="*{id}" />
+		<p>
+			Name: <input type="text" th:field="*{name}" />
+		</p>
+		<p>
+			Price: <input type="text" th:field="*{type}" />
+		</p>
+		<p>
+			Food: <select th:field="*{food}">
+				<option value=""></option>
+				<option th:each="food : ${foods}" th:value="${food.id}"
+					th:text="${food.name}"></option>
+			</select>
+		</p>
+		<button type="submit">Salvar</button>
+		<a th:href="@{/pet}">Cancelar</a>
+	</form>
+
+</body>
+</html>

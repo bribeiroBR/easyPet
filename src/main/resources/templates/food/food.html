@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Food</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div th:replace="fragments/menu"></div>
+	<h1>Food</h1>
+	<a href="/food/edit">Add Food</a>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="food : ${foods}">
+				<td><span th:text="*{food.name}"></span></td>
+				<td>
+					<div class="btn-group pull-right">
+						<a th:href="@{/food/edit/{id}(id=${food.id})}">Edit</a> <a
+							th:href="@{/food/delete/{id}(id=${food.id})}">Delete</a>
+					</div>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Edit Food</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<div th:replace="fragments/menu"></div>
+	<h1>Food</h1>
+	<form action="#" th:object="${food}" th:action="@{/food/save}"
+		method="post">
+		<input type="hidden" th:field="*{id}" />
+		<p>
+			Name: <input type="text" th:field="*{name}" />
+		</p>
+		<button type="submit">Salvar</button>
+		<a th:href="@{/food}">Cancelar</a>
+	</form>
+
+</body>
+</html>
